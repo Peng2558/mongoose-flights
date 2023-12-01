@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <title>Add Flight</title>
+</head>
+<body>
+  <a  href="/" >Go Home</a>
+  <h1>ADD FLIGHTS</h1>
+  <!--label>AirLine:</label>
+  <input type="text" name="airline"><br>
+  <label>AirPort:</label>
+  <input type="text" name="airport"><br>
+  <label>FlightNo</label>
+  <input type="text" name="flightno"><br>
+  <input type="submit" value="Add Movie"><br><br>-->
+  <form id="new-form" action="/movies" method="POST">
+    <label>AirLine:</label>
+    <select name="airport">
+      <option value="1">DEN</option>
+      <option value="2">AUS</option>
+      <option value="3">DFW</option>
+      <option value="4">LAX</option> 
+      <option value="4">SAN</option>     
+    </select>
+
+    <label>AirPort:</label>
+    <input type="text" name="releaseYear">
+    <label>FlightNo</label>
+    <input type="text" name="flightno">
+    <br><br><br>
+    <label>Departure:</label>
+    <input type="datetime-local" name="date">
+    
+
+    <input type="submit" value="Add Flight">
+  </form>
+ 
+</body>
+</html>
+
+
+
+

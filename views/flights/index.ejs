@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <title></title>
+</head>
+<body>
+  ALL FLIGHTS
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/style.css">
-  <a  href="/flights" >ALL FLIGHTS</a> <a href="/new">ADD FLIGHT</a>
-  <title>Document</title>
+  <a  href="/" >Go Home</a> <a href="flights/new">Add Flight</a>
+  <title>All Flights</title>
 </head>
 <body>
   <table id="list">
@@ -18,14 +30,9 @@
           <td id="table">airport</td>
           <td id="table">flightNo</td>
           <td id="table">departure</td>
-          <td id="table"><input type="datetime-local" ></td>
         </tr>
     
       </tbody>
     </table>
 </body>
-</html>-->
-<%- include('./partials/header') %>
-<a href="/flights">ALL FLIGHTS</a><br>
-<a href="/flights/new">ADD FLIGHT</a>
-<%- include('./partials/footer') %>
+</html>
