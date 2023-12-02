@@ -20,10 +20,11 @@
   <title>All Flights</title>
 </head>
 <body>
-  <table id="list">
+  <table >
     <thead>
-      <tr>
-        <h1>Flights Charts</h1>
+    <tbody>
+    
+        <h1>Flights Chart</h1>
       
         <tr>
           <td id="table">airline</td>
@@ -31,7 +32,14 @@
           <td id="table">flightNo</td>
           <td id="table">departure</td>
         </tr>
-    
+        <% flights.forEach(function(f) { %>
+          <tr>
+            <td><%= f.airline %></td>
+            <td><%= f.airport %></td>
+            <td><%= f.flightNo %></td>
+            <td><%= f.departs %></td>
+           
+          <% }); %> 
       </tbody>
     </table>
 </body>

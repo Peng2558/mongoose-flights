@@ -16,25 +16,27 @@
   <label>FlightNo</label>
   <input type="text" name="flightno"><br>
   <input type="submit" value="Add Movie"><br><br>-->
-  <form id="new-form" action="/movies" method="POST">
+  <form id="new-form" action="/flights" method="POST">
     <label>AirLine:</label>
-    <select name="airport">
-      <option value="1">DEN</option>
-      <option value="2">AUS</option>
-      <option value="3">DFW</option>
-      <option value="4">LAX</option> 
-      <option value="4">SAN</option>     
+    <select name="airline">
+      <option value="American" >American</option>
+      <option value="United">United</option>
+      <option value="SouthWest">SouthWest</option>      
     </select>
 
     <label>AirPort:</label>
-    <input type="text" name="releaseYear">
+    <select name="airport">
+      <option value="DEN">DEN</option>
+      <option value="AUS" >AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="LAX">LAX</option> 
+      <option value="SAN" >SAN</option>     
+    </select>
     <label>FlightNo</label>
-    <input type="text" name="flightno">
+    <input type="text" name="flightNo">
     <br><br><br>
     <label>Departure:</label>
     <input type="datetime-local" name="date">
-    
-
     <input type="submit" value="Add Flight">
   </form>
  
