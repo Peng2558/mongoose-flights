@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <a href="/flights">ALL FLIGHTS</a>
+    <a href="/">Go Home</a>
     <title>Flight's Detail</title>
     <h1>Flight's Detail</h1>
 </head>
 <body>
     <section id="show-page">
         <label>AirLine: </label>
-        <input value=<%= flight.airline %>>
+        <input value="<%= flight.airline %>">
         <label>AirPort: </label>
-        <input value=<%= flight.airport %>>
+        <input value="<%= flight.airport %>">
         <label>FlightNo: </label>
-        <input value=<%= flight.flightNo %>>
+        <input value="<%= flight.flightNo %>">
+        <br><br>
+        <label>Departure: </label>
+        <input style="<%= flight.isPast ? 'color: red;' : '' %>" value="<%= flight.formattedDeparts %>">
       </section>
       <br><br>
     </select>
@@ -29,10 +34,11 @@
       <option value="SAN" >SAN</option>     
     </select>
     <br>
+    <input type="datetime-local" name="date">
+    <br>
     <button>Add Destination</button>
     <br>
-      <a href="/flights">ALL FLIGHTS</a>
-      <a href="/">Go Home</a>
+     
      
 </body>
 </html>

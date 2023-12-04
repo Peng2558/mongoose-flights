@@ -47,6 +47,7 @@ const flightSchema = new Schema({
    const oneYear = new Date()
    oneYear.setFullYear(oneYear.getFullYear() + 1)
    return oneYear
+  
    }
   
   },

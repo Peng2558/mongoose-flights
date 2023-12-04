@@ -12,26 +12,28 @@
   <table >
     <thead>
     <tbody>
-    
+      <br>
+      <a  href="/" >Go Home</a> 
+      <a href="flights/new">Add Flight</a>
         <h1>Flights Chart</h1>
       
         <tr>
-          <td id="table">airline</td>
-          <td id="table">airport</td>
-          <td id="table">flightNo</td>
-          <td id="table">departure</td>
+          <td id="table">Airline</td>
+          <td id="table">AirPort</td>
+          <td id="table">FlightNo</td>
+          <td id="table">Departure</td>
         </tr>
         <% flights.forEach(function(f) { %>
           <tr>
             <td><%= f.airline %></td>
             <td><%= f.airport %></td>
             <td><%= f.flightNo %></td>
-            <td><%= f.departs %></td>
+            <td style="<%= new Date(f.departs) < new Date() ? 'color: red;' : '' %>"><%= new Date(f.departs).toISOString().slice(0, 16) %></td>
             <td> <a href="/flights/<%= f.id %>">Details</a></td>
           <% }); %>  
      
       </tbody>
-      <a  href="/" >Go Home</a> <a href="flights/new">Add Flight</a>
+    
     </table>
 </body>
 </html>
