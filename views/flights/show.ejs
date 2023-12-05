@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <a href="/flights">ALL FLIGHTS</a>
-    <a href="/">Go Home</a>
     <title>Flight's Detail</title>
-    <h1>Flight's Detail</h1>
 </head>
 <body>
+    <a href="/flights">ALL FLIGHTS</a>
+    <a href="/">Go Home</a>
+    <h1>Flight's Detail</h1>
+
     <section id="show-page">
         <label>AirLine: </label>
         <input value="<%= flight.airline %>">
@@ -19,26 +20,33 @@
         <input value="<%= flight.flightNo %>">
         <br><br>
         <label>Departure: </label>
-        <input style="<%= flight.isPast ? 'color: red;' : '' %>" value="<%= flight.formattedDeparts %>">
-      </section>
-      <br><br>
-    </select>
+        <input style="<%= flight.isPast ? 'color: red;' : '' %>" value="<%= flight.formattedDeparts %>" readonly>
+    </section>
+    <br><br>
 
-    <label>Select the Destinations:</label>
-    <br>
-    <select name="destinations">
-      <option value="DEN">DEN</option>
-      <option value="AUS" >AUS</option>
-      <option value="DFW">DFW</option>
-      <option value="LAX">LAX</option> 
-      <option value="SAN" >SAN</option>     
-    </select>
-    <br>
-    <input type="datetime-local" name="date">
-    <br>
-    <button>Add Destination</button>
-    <br>
-     
-     
+
+    <form id="detail-form" action="/flights/<%= flight._id %>/destinations" method="POST">
+        <label for="airport">Select Destination Airport:</label>
+        <select name="airport">
+          <option value="DEN">DEN</option>
+          <option value="AUS">AUS</option>
+          <option value="DFW">DFW</option>
+          <option value="LAX">LAX</option> 
+          <option value="SAN">SAN</option>     
+        </select>
+        <br>
+        <label for="arrival">Arrival Date and Time:</label>
+        <input type="datetime-local" name="arrival">
+        <br>
+        <button type="submit">Add Destination</button>
+    </form>
+
+    <h2>Destinations:</h2>
+    <ul>
+      <% flight.destinations.forEach(function(destination) { %>
+        <li>Airport: <%= destination.airport %>, Arrival: <%= new Date(destination.arrival).toLocaleString() %></li>
+      <% }); %>
+    </ul>
 </body>
 </html>
+

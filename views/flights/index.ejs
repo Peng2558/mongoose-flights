@@ -29,6 +29,7 @@
             <td><%= f.airport %></td>
             <td><%= f.flightNo %></td>
             <td style="<%= new Date(f.departs) < new Date() ? 'color: red;' : '' %>"><%= new Date(f.departs).toISOString().slice(0, 16) %></td>
+           
             <td> <a href="/flights/<%= f.id %>">Details</a></td>
           <% }); %>  
      

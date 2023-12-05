@@ -3,7 +3,7 @@ module.exports = {
     index,
     show,
     new:newFlight,
-    create
+    create 
   };
   async function index(req, res) {
     const flights = await Flight.find({});
