@@ -39,7 +39,7 @@
         <button type="submit">Add Destination</button>
     </form>
     <h3>Purchase a Ticket</h3>
-    <form action="/flights/<%= flight._id %>" method="POST">
+    <form action="/flights/<%= flight._id %>/tickets" method="POST">
         <label for="seat">Seat:</label>
         <input type="text" name="seat" required pattern="[A-F][1-9]\d?">
         <br>
@@ -49,15 +49,16 @@
         <button type="submit">Purchase Ticket</button>
     </form>
     <h2>Tickets for this Flight:</h2>
-<% if (typeof tickets !== 'undefined' && tickets.length > 0) { %>
+ <!-- <% if (typeof tickets !== 'undefined' && tickets.length > 0) { %> 
+    -->
   <ul>
     <% tickets.forEach(function(ticket) { %>
-      <li>Seat: <%= ticket.seat %>, Price: $<%= ticket.price %></li>
+      <li>Seat: <%= ticket.seat %>, Price: <%= ticket.price %></li>
     <% }); %>
   </ul>
-<% } else { %>
+<!-- <% } else { %>
   <p>No tickets have been purchased for this flight yet.</p>
-<% } %>
+<% } %> -->
     <h2>Destinations:</h2>
     <ul>
       <% flight.destinations.forEach(function(destination) { %>

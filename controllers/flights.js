@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 module.exports = {
     index,
     show,
@@ -20,14 +21,16 @@ module.exports = {
   async function show(req, res) {
    
     const flight = await Flight.findById(req.params.id)  
+    const tickets = await Ticket.find({flight:flight._id})
   
      if (flight.departs) {
        
         const departsDate = new Date(flight.departs);
         flight.formattedDeparts = departsDate.toISOString().slice(0, 16);
         flight.isPast = departsDate < new Date();
+
       }
-    res.render('flights/show', { title: 'Flight Details', flight });
+    res.render('flights/show', { title: 'Flight Details', flight,tickets });
    
   }
    function newFlight (req,res){
