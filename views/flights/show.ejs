@@ -10,7 +10,6 @@
     <a href="/flights">ALL FLIGHTS</a>
     <a href="/">Go Home</a>
     <h1>Flight's Detail</h1>
-
     <section id="show-page">
         <label>AirLine: </label>
         <input value="<%= flight.airline %>">
@@ -20,10 +19,9 @@
         <input value="<%= flight.flightNo %>">
         <br><br>
         <label>Departure: </label>
-        <input style="<%= flight.isPast ? 'color: red;' : '' %>" value="<%= flight.formattedDeparts %>" readonly>
+        <input style="<%= flight.isPast ? 'color: red;' : '' %>" value="<%= flight.formattedDeparts %>">
     </section>
-    <br><br>
-
+      <br>   
 
     <form id="detail-form" action="/flights/<%= flight._id %>/destinations" method="POST">
         <label for="airport">Select Destination Airport:</label>
@@ -40,7 +38,26 @@
         <br>
         <button type="submit">Add Destination</button>
     </form>
-
+    <h3>Purchase a Ticket</h3>
+    <form action="/flights/<%= flight._id %>" method="POST">
+        <label for="seat">Seat:</label>
+        <input type="text" name="seat" required pattern="[A-F][1-9]\d?">
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" name="price" min="0" required>
+        <br>
+        <button type="submit">Purchase Ticket</button>
+    </form>
+    <h2>Tickets for this Flight:</h2>
+<% if (typeof tickets !== 'undefined' && tickets.length > 0) { %>
+  <ul>
+    <% tickets.forEach(function(ticket) { %>
+      <li>Seat: <%= ticket.seat %>, Price: $<%= ticket.price %></li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No tickets have been purchased for this flight yet.</p>
+<% } %>
     <h2>Destinations:</h2>
     <ul>
       <% flight.destinations.forEach(function(destination) { %>

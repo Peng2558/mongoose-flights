@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
@@ -14,7 +15,7 @@ const ticketSchema = new Schema({
   },
   flight: {
 
-    type: ObjectId,
+    type: Schema.Types.ObjectId,
     ref:'Flight'
   }
   
